@@ -47,11 +47,25 @@ public class PersonDaoTestCase {
 
     @Test
     public void shouldListAllPersons() {
+        // When
         List<Person> allPersons = personDao.fetchAllPersons();
+        // Then
         assertThat(allPersons).hasSize(3);
         assertThat(allPersons).extracting(Person::getId, Person::getLastName, Person::getFirstName, Person::getNickname).containsOnly(
                 tuple(1, "IBRAHIM", "Naafi", "Prof"),
                 tuple(2, "KUMAH", "Emmanuel", "EasyBlend"),
                 tuple(3, "SAAD", "Mohammad", "Mo"));
+    }
+
+    @Test
+    public void shouldGetPersonById() {
+        // When
+        Integer id = 1;
+        Person person = personDao.getPersonById(id);
+        // Then
+        assertThat(person.getId()).isEqualTo(1);
+        assertThat(person.getLastName()).isEqualTo("IBRAHIM");
+        assertThat(person.getFirstName()).isEqualTo("Naafi");
+        assertThat(person.getNickname()).isEqualTo("Prof");
     }
 }
