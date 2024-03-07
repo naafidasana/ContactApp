@@ -57,4 +57,10 @@ public class Person {
     public Address getAddress() { return this.address; }
 
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
+    
+    @Override
+    public List<String> toString() {
+		return this.firstName +""+this.phoneNumber;
+    	
+    }
 }
