@@ -1,6 +1,7 @@
 package isen.contactapp.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Person {
 
@@ -58,9 +59,5 @@ public class Person {
 
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
     
-    @Override
-    public List<String> toString() {
-		return this.firstName +""+this.phoneNumber;
-    	
-    }
+  
 }

@@ -17,7 +17,7 @@
       </Label>
       <Pane layoutX="218.0" layoutY="304.0" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="163.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="55.0" mnemonicParsing="false" text="View Details" />
+            <Button onAction="#handleButtonClick" alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="55.0" mnemonicParsing="false" fx:id="detailButton" text="View Details" />
             <Label fx:id="labelDetail" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="12.0" text="Emmanuel">
                <font>
                   <Font size="24.0" />
