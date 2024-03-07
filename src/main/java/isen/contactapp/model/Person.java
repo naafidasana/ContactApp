@@ -59,12 +59,10 @@ public class Person {
 
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
     
-<<<<<<< HEAD
-  
-=======
+
+
     @Override
     public String toString() {
 		return this.firstName +" "+this.phoneNumber;
     }
->>>>>>> 9612d0a25892eb6eb79366dcca70249bd2f66e9b
 }

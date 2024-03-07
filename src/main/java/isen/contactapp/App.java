@@ -10,10 +10,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import isen.contactapp.model.Person;
+
 
 public class App extends Application {
 
     private static Scene scene;
+    
+    private static Person detailViewData;
+
 
     private static BorderPane mainLayout;
     @Override
@@ -26,7 +31,7 @@ public class App extends Application {
 //        stage.show();
 //    }
     
-    public void start(Stage stage) throws IOException {
+    public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
         scene = new Scene(loadFXML("MainLayout"));
         stage.setScene(scene);
         stage.show();
@@ -54,4 +59,17 @@ public class App extends Application {
             throw new IllegalArgumentException();
         }
     }
+    
+    
+    // Getter for detailViewData
+    @SuppressWarnings("exports")
+	public static Person getDetailViewData() {
+        return detailViewData;
+    }
+
+    // Setter for detailViewData
+    public static void setDetailViewData(@SuppressWarnings("exports") Person data) {
+        detailViewData = data;
+    }
+
 }
