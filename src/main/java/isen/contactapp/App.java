@@ -27,7 +27,7 @@ public class App extends Application {
 //    }
     
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("/isen/contactapp/view/MainLayout"));
+        scene = new Scene(loadFXML("MainLayout"));
         stage.setScene(scene);
         stage.show();
     }
@@ -40,16 +40,9 @@ public class App extends Application {
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-    
-    
-    //Why do you have a list return type for the loadFFXML function!!!!!!!!! WHYYYY
-//    public static <T> T loadFXML(String fxml) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/isen/contactapp/view/" + fxml + ".fxml"));
-//        return fxmlLoader.load();
-//    }
-    
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+
+    public static <T> T loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/isen/contactapp/view/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
 

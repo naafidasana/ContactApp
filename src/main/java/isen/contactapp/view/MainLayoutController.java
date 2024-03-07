@@ -23,12 +23,11 @@ public class MainLayoutController {
 	@FXML
 	public void viewall() throws IOException {
 		
-try {
-	App.setRoot("/isen/contactapp/view/ContactsListingView");
-} catch (Exception e) {
-	// TODO: handle exception
-	e.printStackTrace();
-}
+	try {
+		App.setRoot("ContactsListingView");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
-	
 }
