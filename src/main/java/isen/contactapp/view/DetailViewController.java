@@ -70,7 +70,7 @@ public class DetailViewController {
 
 	public void handleDeleteBtn() {
 		try {
-			int result = new PersonDao().deletePerson(App.getDetailViewData());
+			 new PersonDao().deletePerson(App.getDetailViewData());
 			Alert alert = new Alert(AlertType.CONFIRMATION, "Delete " + App.getDetailViewData().getFirstName() + " ?", ButtonType.YES, ButtonType.CANCEL);
 			alert.showAndWait();
 

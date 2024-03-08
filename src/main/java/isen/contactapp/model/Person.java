@@ -63,6 +63,6 @@ public class Person {
 
     @Override
     public String toString() {
-		return this.firstName +" "+this.phoneNumber;
+		return this.firstName +" "+this.phoneNumber+" "+this.emailAddress+" "+this.nickname;
     }
 }

@@ -29,6 +29,6 @@
       </MenuBar>
    </top>
    <center>
-      <Button fx:id="viewallBtn" mnemonicParsing="false" onAction="#viewall" prefHeight="42.0" prefWidth="138.0" text="All Contacts" BorderPane.alignment="CENTER" />
+      <Button fx:id="viewallBtn" mnemonicParsing="false" onAction="#viewall" prefHeight="42.0" prefWidth="138.0" text="View All Contacts" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

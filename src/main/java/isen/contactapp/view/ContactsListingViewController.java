@@ -35,22 +35,21 @@ public class ContactsListingViewController{
     
     List<Person> d = personDao.fetchAllPersons();
     
+   
+    
     List<String> myArrList = new ArrayList<>();
     
     
     public void setList() {
-
         if(d.isEmpty()) {
         	return ;
         }else {
+        	 System.out.println(d);
         for(int i = 0; i < d.size(); i++) {
             myArrList.add(d.get(i).getFirstName());
         }
         
         // Initialize the labelsContainer
-       
-        
-        
         
         	 myListView.getItems().addAll(myArrList);
              labelDetail.setText(myArrList.get(0));
@@ -64,6 +63,8 @@ public class ContactsListingViewController{
                      String selectedItem = myListView.getSelectionModel().getSelectedItem();
                      for (Person person : d) {
                          if (person.getFirstName().equals(selectedItem)) {
+                        	 
+                        	 System.out.println(person);
                              App.setDetailViewData(person);
                              break;
                          }
@@ -75,20 +76,17 @@ public class ContactsListingViewController{
     }
   
    @FXML
-    public void initialize() {
-    	
-	   	if(myArrList.size()>0) {
-	   		setList();
-	   	}else {
-	   		labelDetail.setText("You have No Contacts!");
-	   		detailButton.setVisible(false);
-	   	}
-    	
-        
-        }
+   public void initialize() {
+       if(d.isEmpty()) {
+           labelDetail.setText("You have No Contacts!");
+           detailButton.setVisible(false);
+       } else {
+           setList();
+       }
+   }
    
    
-   public void handleAddButtonClick(ActionEvent event) {
+   public void handleAddButtonClick() {
 		   try {
 			   FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddContact.fxml"));
 		   	Parent root1 = (Parent)fxmlLoader.load();
