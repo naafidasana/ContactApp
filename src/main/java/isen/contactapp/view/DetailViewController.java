@@ -70,12 +70,13 @@ public class DetailViewController {
 
 	public void handleDeleteBtn() {
 		try {
-			int result = new PersonDao().deletePerson(App.getDetailViewData());
+			
 			Alert alert = new Alert(AlertType.CONFIRMATION, "Delete " + App.getDetailViewData().getFirstName() + " ?", ButtonType.YES, ButtonType.CANCEL);
 			alert.showAndWait();
 
 			if (alert.getResult() == ButtonType.YES) {
 			    //do stuff
+				 new PersonDao().deletePerson(App.getDetailViewData());
 			}
 		App.setRoot("ContactsListingView");
 		} catch (Exception e) {

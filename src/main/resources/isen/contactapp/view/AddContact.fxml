@@ -64,7 +64,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="EmailTxt" alignment="CENTER" prefHeight="27.0" prefWidth="223.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="emailTxt" alignment="CENTER" prefHeight="27.0" prefWidth="223.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>

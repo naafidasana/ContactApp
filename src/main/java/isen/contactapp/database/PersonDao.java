@@ -24,6 +24,7 @@ public class PersonDao {
                                 results.getString("firstname"),
                                 results.getString("lastname"),
                                 results.getString("nickname")
+                               
                         );
 
                         listOfPersons.add(person);
