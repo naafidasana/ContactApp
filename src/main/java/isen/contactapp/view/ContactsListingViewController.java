@@ -9,7 +9,6 @@ import isen.contactapp.database.PersonDao;
 import isen.contactapp.model.Person;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,11 +49,6 @@ public class ContactsListingViewController{
         }
         
         // Initialize the labelsContainer
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 68c176c7d33e74128625d4d645f159ee694706af
         	 myListView.getItems().addAll(myArrList);
              labelDetail.setText(myArrList.get(0));
              myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
