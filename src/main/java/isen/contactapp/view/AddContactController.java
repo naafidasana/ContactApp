@@ -2,6 +2,7 @@ package isen.contactapp.view;
 
 import isen.contactapp.App;
 import isen.contactapp.database.PersonDao;
+import isen.contactapp.model.Address;
 import isen.contactapp.model.Person;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -14,7 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 public class AddContactController {
 	
 	@FXML
-	private TextField FnameTxt,LnameTxt,emailTxt,phoneTxt,addressTxt,NickTxt;
+	private TextField FnameTxt,LnameTxt,emailTxt,phoneTxt,adressTxt1,NickTxt,adressTxt2,adressTxt3;
 	
 	
 
@@ -24,7 +25,10 @@ public class AddContactController {
 		String Lname = LnameTxt.getText();
 		String phone = phoneTxt.getText();
 		String email = emailTxt.getText();		
-		String nick = NickTxt.getText();		
+		String nick = NickTxt.getText();
+		String city = adressTxt1.getText();
+		String street = adressTxt2.getText();
+		String zipCode = adressTxt3.getText();
 		
 		if(Fname.isEmpty() && Lname.isEmpty() && phone.isEmpty()) {
 			try {
@@ -46,6 +50,8 @@ public class AddContactController {
 					contact.setPhoneNumber(phone);
 					contact.setNickname(nick);
 					contact.setEmailAddress(email);
+					contact.setAddress(new Address(city, street, zipCode));
+					
 					Person newContact = new PersonDao().addPerson(contact);
 					
 					App.setRoot("MainLayout");

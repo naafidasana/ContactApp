@@ -1,26 +1,27 @@
 package isen.contactapp.model;
 
 public class Address {
-    private String streetAddress;
+ 
     private String city;
     private String zipCode;
-    private String country;
+    private String street;
 
-    public Address(String streetAddress, String city, String zipCode, String country) {
-        this.streetAddress = streetAddress;
+    public Address(String city, String street, String zipCode) {
+        
         this.city = city;
         this.zipCode = zipCode;
-        this.country = country;
+        this.street = street;
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "%s\n%s, %s %s",
-                this.streetAddress,
-                this.city,
-                this.zipCode,
-                this.country
-        );
+//        return String.format(
+//                "%s\n%s, %s %s",
+//                this.city,
+//                this.street,
+//                this.zipCode
+//              
+//        );
+    	 return  this.city+" "+ this.street+" "+ this.zipCode;
     }
 }

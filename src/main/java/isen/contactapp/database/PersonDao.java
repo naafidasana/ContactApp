@@ -26,6 +26,19 @@ public class PersonDao {
                                 results.getString("nickname")
                                
                         );
+                        
+                        person.setPhoneNumber( results.getString("phone_number"));
+                        person.setEmailAddress(results.getString("email_address"));
+                        String street = results.getString("street");
+                        String city = results.getString("City");
+                     
+                        String zipCode = results.getString("Zip_Code");
+                        
+                        // Create an Address object and set it for the person
+                        Address address = new Address(city, street, zipCode);
+                        
+                        person.setAddress(address);
+                        
 
                         listOfPersons.add(person);
                     }
