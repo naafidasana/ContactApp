@@ -48,10 +48,7 @@ public class ContactsListingViewController{
         }
         
         // Initialize the labelsContainer
-       
-        
-        
-        
+
         	 myListView.getItems().addAll(myArrList);
              labelDetail.setText(myArrList.get(0));
              myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -102,18 +99,13 @@ public class ContactsListingViewController{
 		   }
    }
 
-   
-        
-       
-    
     public void handleButtonClick() {
     	System.out.println(myArrList.size());
         try {
             // Get the selected item from the list view
             
             // Pass the selected item to the next view
-            
-            
+
             // Navigate to the next view
             App.setRoot("DetailView");
         } catch (Exception e) {
@@ -121,8 +113,4 @@ public class ContactsListingViewController{
             e.printStackTrace();
         }
     }
-    
- 
-   
-           
 }

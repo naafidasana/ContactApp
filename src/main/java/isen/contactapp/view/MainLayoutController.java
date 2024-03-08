@@ -8,14 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class MainLayoutController {
-    //@FXML
-    //private Label welcomeText;
-
-    //@FXML
-    //protected void onHelloButtonClick() {
-    //    welcomeText.setText("Welcome to JavaFX Application!");
-    //}
-	
 	
 	@FXML
 	private Button viewallBtn;
