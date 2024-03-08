@@ -2,7 +2,6 @@ package isen.contactapp.database;
 
 import isen.contactapp.model.Address;
 import isen.contactapp.model.Person;
-import javafx.scene.chart.PieChart;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -14,11 +13,11 @@ public class PersonDao {
     public List<Person> fetchAllPersons() {
         List<Person> listOfPersons = new ArrayList<>();
 
-        try(Connection connection = DataSourceFactory.getConnection()) {
-            try(Statement statement = connection.createStatement()) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            try (Statement statement = connection.createStatement()) {
                 String sqlQuery = "SELECT * FROM person";
-                try(ResultSet results = statement.executeQuery(sqlQuery)) {
-                    while(results.next()) {
+                try (ResultSet results = statement.executeQuery(sqlQuery)) {
+                    while (results.next()) {
                         // Create person object and add to listOfPersons array list
                         Person person = new Person(
                                 results.getInt("idperson"),
@@ -39,7 +38,7 @@ public class PersonDao {
     }
 
     public Person addPerson(Person person) {
-        try(Connection connection = DataSourceFactory.getConnection()) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             String sqlQuery = "INSERT INTO person(lastname, firstname, nickname, phone_number, address, email_address, birth_date) VALUES (?,?,?,?,?,?,?)";
             try (PreparedStatement statement = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS)) {
                 statement.setString(1, person.getLastName());
@@ -74,11 +73,11 @@ public class PersonDao {
 
     public Person getPersonById(Integer id) {
 
-        try(Connection connection = DataSourceFactory.getConnection()) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             String sqlQuery = "SELECT * FROM person where idperson=?";
             try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
                 statement.setInt(1, id);
-                try(ResultSet result = statement.executeQuery()) {
+                try (ResultSet result = statement.executeQuery()) {
                     if (result.next()) {
                         Person person = new Person();
                         // Set fields to their respective values if they exist.
@@ -102,5 +101,21 @@ public class PersonDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public Integer deletePerson(Person person) {
+        Integer rowsDeleted = 0;
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            String sqlQuery = "DELETE FROM person WHERE idperson=?";
+            try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
+                statement.setInt(1, person.getId());
+
+                // Execute delete operation
+                rowsDeleted = statement.executeUpdate();  // An integer corresponding to the number of rows deleted.
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsDeleted;
     }
 }

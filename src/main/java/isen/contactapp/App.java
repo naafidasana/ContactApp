@@ -1,9 +1,7 @@
 package isen.contactapp;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -22,17 +20,9 @@ public class App extends Application {
 
     private static BorderPane mainLayout;
     @Override
-    ///WHAT IS THIS ????
-//    public void start(Stage stage) throws IOException {
-//        stage.setTitle("Contacts");
-//        mainLayout = loadFXML("MainLayout");
-//        scene = new Scene(mainLayout, 640, 480);
-//        stage.setScene(scene);
-//        stage.show();
-//    }
-    
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-        scene = new Scene(loadFXML("MainLayout"));
+        mainLayout = loadFXML("MainLayout");
+        scene = new Scene(mainLayout);
         stage.setScene(scene);
         stage.show();
     }
@@ -41,7 +31,6 @@ public class App extends Application {
         launch();
     }
 
-    //Added the set root. why do you create a mainapp class without the setroot function???????????????????????????
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
