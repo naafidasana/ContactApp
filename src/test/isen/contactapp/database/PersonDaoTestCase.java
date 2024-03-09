@@ -96,9 +96,21 @@ public class PersonDaoTestCase {
     @Test
     public void shouldDeletePerson() {
         // WHEN
-        Person perssonToDelete = personDao.getPersonById(3);    // Delete Mohammad from Database
-        Integer rowsDeleted = personDao.deletePerson(perssonToDelete);
+        Person personToDelete = personDao.getPersonById(3);    // Delete Mohammad from Database
+        Integer rowsDeleted = personDao.deletePerson(personToDelete);
+        // Then
         assertThat(rowsDeleted).isEqualTo(1);
         assertThat(personDao.getPersonById(3)).isNull();
+    }
+
+    @Test
+    public void shouldUpdateLastName() {
+        // WHEN
+        Person originalPerson = personDao.getPersonById(1); // Update Naafi's lastname to Dasana
+        Person updatedPerson = personDao.updateLastName(originalPerson, "DASANA");
+        //Then
+        assertThat(updatedPerson.getLastName()).isEqualTo("DASANA");
+        assertThat(updatedPerson.getLastName()).isEqualTo(originalPerson.getLastName());
+        assertThat(updatedPerson.getLastName()).isEqualTo(personDao.getPersonById(originalPerson.getId()).getLastName());
     }
 }

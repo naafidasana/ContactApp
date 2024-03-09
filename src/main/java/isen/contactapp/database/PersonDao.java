@@ -24,9 +24,18 @@ public class PersonDao {
                                 results.getString("firstname"),
                                 results.getString("lastname"),
                                 results.getString("nickname")
-                               
+
                         );
 
+                        // Check if the other fields are not null and set their values correspondinly
+                        if (results.getObject("address") != null)
+                            person.setAddress((Address) results.getObject("address"));
+                        if (results.getString("email_address") != null)
+                            person.setEmailAddress(results.getString("email_address"));
+                        if (results.getString("phone_number") != null)
+                            person.setPhoneNumber(results.getString("phone_number"));
+                        if (results.getObject("birth_date") != null)
+                            person.setDateOfBirth((LocalDate) results.getObject("birth_date"));
                         listOfPersons.add(person);
                     }
                 }
@@ -118,5 +127,30 @@ public class PersonDao {
             e.printStackTrace();
         }
         return rowsDeleted;
+    }
+
+    public Person updateLastName(Person person, String newLastName) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            String sqlQuery = "UPDATE person SET lastname=? WHERE idperson=?";
+            try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
+                statement.setString(1, newLastName);
+                statement.setInt(2, person.getId());
+
+                // Execute update
+                int rowsUpdated = statement.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    // rowsUpdated will be equals to one since IDs are unique.
+                    // Update objects lastname
+                    person.setLastName(newLastName);
+                    return person;
+                } else {
+                    throw new SQLException("Failed to update lastname for person with id: " + person.getId());
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
