@@ -1,6 +1,6 @@
 package isen.contactapp.model;
 
-public class Address {
+public class Address{
  
     private String city = "";
     private String zipCode = "";
@@ -8,11 +8,12 @@ public class Address {
 
     private String country = "";
 
-    public Address(String city, String street, String zipCode) {
+    public Address(String city, String street, String zipCode, String country) {
         
         this.city = city;
         this.zipCode = zipCode;
         this.street = street;
+        this.country = country;
     }
 
     public Address() {
@@ -45,7 +46,6 @@ public class Address {
                 this.city,
                 this.zipCode,
                 this.country
-
         );
     }
 }

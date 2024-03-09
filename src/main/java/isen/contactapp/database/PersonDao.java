@@ -27,9 +27,9 @@ public class PersonDao {
 
                         );
 
-                        // Check if the other fields are not null and set their values correspondinly
+                        // Check if the other fields are not null and set their values correspondingly
                         if (results.getObject("address") != null)
-                            person.setAddress((Address) results.getObject("address"));
+                            person.setAddress(results.getString("address"));
                         if (results.getString("email_address") != null)
                             person.setEmailAddress(results.getString("email_address"));
                         if (results.getString("phone_number") != null)
@@ -98,7 +98,7 @@ public class PersonDao {
 
                         // The following fields in the person table allows null values.
                         // As such, we check if they are non-null before attempting to set the corresponding fields in the person object.
-                        if (result.getObject("address") != null) person.setAddress((Address) result.getObject("address"));
+                        if (result.getObject("address") != null) person.setAddress(result.getString("address"));
                         if (result.getString("email_address") != null) person.setEmailAddress(result.getString("email_address"));
                         if (result.getString("phone_number") != null) person.setPhoneNumber(result.getString("phone_number"));
                         if (result.getObject("birth_date") != null) person.setDateOfBirth((LocalDate) result.getObject("birth_date"));
