@@ -23,26 +23,13 @@ public class PersonDao {
                                 results.getString("firstname"),
                                 results.getString("lastname"),
                                 results.getString("nickname")
-<<<<<<< HEAD
-                               
                         );
+
                         
                         person.setPhoneNumber( results.getString("phone_number"));
                         person.setEmailAddress(results.getString("email_address"));
-                        String street = results.getString("Street");
-                        String city = results.getString("City");
-                     
-                        String zipCode = results.getString("Zip_Code");
-                        
-                        // Create an Address object and set it for the person
-                        Address address = new Address(city, street, zipCode);
-                        
-                        person.setAddress(address);
-                        
-=======
->>>>>>> 6f56fa4f7a7132801286b6474512facebf4e104e
+                        person.setAddress(results.getString("address"));
 
-                        );
 
                         // Check if the other fields are not null and set their values correspondingly
                         if (results.getObject("address") != null)
@@ -74,10 +61,6 @@ public class PersonDao {
                 statement.setString(4, person.getPhoneNumber());
                 statement.setObject(5, person.getAddress());
                 statement.setString(6, person.getEmailAddress());
-<<<<<<< HEAD
-                statement.setObject(7, person.getDateOfBirth());
-//                statement.setObject(8, person.getDateOfBirth());
-=======
 
                 // Get date object
                 LocalDate dobPerson = person.getDateOfBirth();
@@ -88,7 +71,6 @@ public class PersonDao {
                     statement.setObject(7, null);   // replacing null with dobPerson will give us the same result.
                 }
 
->>>>>>> 6f56fa4f7a7132801286b6474512facebf4e104e
                 // Execute update query
                 statement.executeUpdate();
 
@@ -183,4 +165,5 @@ public class PersonDao {
         }
         return null;
     }
+
 }
