@@ -7,21 +7,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.contactapp.view.ContactsListingViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.contactapp.view.ContactsListingViewController">
    <children>
-      <ListView fx:id="myListView" layoutX="169.0" layoutY="79.0" prefHeight="208.0" prefWidth="264.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="175.0" layoutY="34.0" prefHeight="60.0" prefWidth="251.0" text="All Your Contacts " textFill="#b91515" wrapText="true">
+      <ListView fx:id="myListView" layoutX="124.0" layoutY="61.0" prefHeight="208.0" prefWidth="340.0" stylesheets="@../style.css" />
+      <Label fx:id="contactListHeader" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="201.0" layoutY="18.0" prefHeight="43.0" prefWidth="199.0" snapToPixel="false" stylesheets="@../style.css" text="All Your Contacts " textFill="#b91515" wrapText="true">
          <font>
             <Font name="Calibri" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="detailButton" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleButtonClick" text="View Details" textAlignment="CENTER" />
-      <Label fx:id="labelDetail" alignment="CENTER" contentDisplay="CENTER" layoutX="244.0" layoutY="280.0" snapToPixel="false" text="Emmanuel" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="detailButton" alignment="CENTER" contentDisplay="CENTER" layoutX="124.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleButtonClick" styleClass="button-secondary" stylesheets="@../style.css" text="View Details" textAlignment="CENTER" />
+      <Label fx:id="labelDetail" alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="278.0" snapToPixel="false" stylesheets="@../style.css" text="Emmanuel" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleAddButtonClick" text="Add a Contact" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
+      <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" layoutX="295.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleAddButtonClick" styleClass="custom-button" stylesheets="@../style.css" text="Add a Contact" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

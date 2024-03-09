@@ -39,7 +39,11 @@ public class App extends Application {
                          + "phone_number VARCHAR(15) NULL,\r\n"
                          + "address VARCHAR(200) NULL,\r\n"
                          + "email_address VARCHAR(150) NULL,\r\n"
-                         + "birth_date DATE NULL);");
+                         + "birth_date DATE  NULL,\r\n"
+                         +"City	VARCHAR(50) NULL,\r\n"
+                     	+"Zip_Code	INTEGER NULL,\r\n"
+                    	+"Street	VARCHAR(100));");
+			                 
 
                  // Delete previously inserted data (from other tests most likely) from data
                  statement.executeUpdate("DELETE FROM person");

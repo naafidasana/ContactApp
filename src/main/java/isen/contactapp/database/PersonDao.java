@@ -29,7 +29,7 @@ public class PersonDao {
                         
                         person.setPhoneNumber( results.getString("phone_number"));
                         person.setEmailAddress(results.getString("email_address"));
-                        String street = results.getString("street");
+                        String street = results.getString("Street");
                         String city = results.getString("City");
                      
                         String zipCode = results.getString("Zip_Code");
@@ -62,7 +62,7 @@ public class PersonDao {
                 statement.setObject(5, person.getAddress());
                 statement.setString(6, person.getEmailAddress());
                 statement.setObject(7, person.getDateOfBirth());
-
+//                statement.setObject(8, person.getDateOfBirth());
                 // Execute update query
                 statement.executeUpdate();
 
