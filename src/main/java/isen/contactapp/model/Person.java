@@ -1,7 +1,6 @@
 package isen.contactapp.model;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Person {
 
@@ -10,7 +9,7 @@ public class Person {
     private String lastName;
     private String nickname;
     private String phoneNumber;
-    private Address address;
+    private String address;
     private String emailAddress;
     private LocalDate dateOfBirth;
 
@@ -34,7 +33,7 @@ public class Person {
 
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public void setAddress(Address address) { this.address = address; }
+    public void setAddress(String address) { this.address = address; }
 
     public void setNickname(String nickname) { this.nickname = nickname; }
 
@@ -55,7 +54,7 @@ public class Person {
 
     public String getEmailAddress() { return this.emailAddress; }
 
-    public Address getAddress() { return this.address; }
+    public String getAddress() { return this.address; }
 
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
     

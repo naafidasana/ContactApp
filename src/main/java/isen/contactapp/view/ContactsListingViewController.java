@@ -35,8 +35,6 @@ public class ContactsListingViewController{
     
     List<Person> d = personDao.fetchAllPersons();
     
-   
-    
     List<String> myArrList = new ArrayList<>();
     
     
@@ -77,6 +75,9 @@ public class ContactsListingViewController{
   
    @FXML
    public void initialize() {
+       // Fetch persons.
+       d = personDao.fetchAllPersons();
+
        if(d.isEmpty()) {
            labelDetail.setText("You have No Contacts!");
            detailButton.setVisible(false);

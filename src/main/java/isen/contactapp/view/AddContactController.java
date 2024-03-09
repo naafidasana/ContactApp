@@ -8,27 +8,34 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 
+import java.time.LocalDate;
+
 public class AddContactController {
-	
+	// Create PersonDao object to add person to database.
+	PersonDao personDao = new PersonDao();
 	@FXML
-	private TextField FnameTxt,LnameTxt,emailTxt,phoneTxt,adressTxt1,NickTxt,adressTxt2,adressTxt3;
-	
-	
+	private TextField FnameTxt, LnameTxt, emailTxt, phoneTxt, cityTxt, NickTxt, streetAddressTxt, zipCodeTxt, countryTxt;
+
+	@FXML
+	private DatePicker dobPicker;
 
 	public void HandleAddContactBtn() {
 		// TODO Auto-generated constructor stub
-		String Fname = FnameTxt.getText();
-		String Lname = LnameTxt.getText();
-		String phone = phoneTxt.getText();
-		String email = emailTxt.getText();		
-		String nick = NickTxt.getText();
-		String city = adressTxt1.getText();
-		String street = adressTxt2.getText();
-		String zipCode = adressTxt3.getText();
+		String Fname = FnameTxt != null ? FnameTxt.getText() : "";
+		String Lname = LnameTxt!= null ? LnameTxt.getText() : "";
+		String phone = phoneTxt != null ? phoneTxt.getText() : "";
+		String email = emailTxt != null ? emailTxt.getText() : "";
+		String nick = NickTxt != null ? NickTxt.getText() : "";
+		String city = cityTxt != null ? cityTxt.getText() : "";
+		String street = streetAddressTxt != null ? streetAddressTxt.getText() : "";
+		String zipCode = zipCodeTxt != null ? zipCodeTxt.getText() : "";
+		String country = countryTxt != null ? countryTxt.getText() : "";
+		LocalDate dob = dobPicker != null ? dobPicker.getValue() : null;
 		
 		if(Fname.isEmpty() && Lname.isEmpty() && phone.isEmpty()) {
 			try {
@@ -51,9 +58,16 @@ public class AddContactController {
 					contact.setPhoneNumber(phone);
 					contact.setNickname(nick);
 					contact.setEmailAddress(email);
-					contact.setAddress(new Address(city, street, zipCode));
+					String contactAddress = String.format(
+							"%s\n%s, %s %s",
+							street,
+							city,
+							zipCode,
+							country);
+					contact.setAddress(contactAddress);
+					contact.setDateOfBirth(dob);
 					
-					Person newContact = new PersonDao().addPerson(contact);
+					Person newContact = personDao.addPerson(contact);
 					
 					App.setRoot("MainLayout");
 					
@@ -64,7 +78,7 @@ public class AddContactController {
 
 					if (alert.getResult() == ButtonType.FINISH) {
 					    //do stuff
-						Stage stage = (Stage) ((Node) phoneTxt).getScene().getWindow();
+						Stage stage = (Stage) (phoneTxt).getScene().getWindow();
 			            stage.close();
 					}
 					

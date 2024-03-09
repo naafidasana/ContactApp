@@ -1,6 +1,5 @@
 package isen.contactapp.database;
 
-import isen.contactapp.model.Address;
 import isen.contactapp.model.Person;
 
 import java.sql.*;
@@ -24,6 +23,7 @@ public class PersonDao {
                                 results.getString("firstname"),
                                 results.getString("lastname"),
                                 results.getString("nickname")
+<<<<<<< HEAD
                                
                         );
                         
@@ -39,7 +39,20 @@ public class PersonDao {
                         
                         person.setAddress(address);
                         
+=======
+>>>>>>> 6f56fa4f7a7132801286b6474512facebf4e104e
 
+                        );
+
+                        // Check if the other fields are not null and set their values correspondingly
+                        if (results.getObject("address") != null)
+                            person.setAddress(results.getString("address"));
+                        if (results.getString("email_address") != null)
+                            person.setEmailAddress(results.getString("email_address"));
+                        if (results.getString("phone_number") != null)
+                            person.setPhoneNumber(results.getString("phone_number"));
+                        if (results.getDate("birth_date") != null)
+                            person.setDateOfBirth(results.getDate("birth_date").toLocalDate());
                         listOfPersons.add(person);
                     }
                 }
@@ -61,8 +74,21 @@ public class PersonDao {
                 statement.setString(4, person.getPhoneNumber());
                 statement.setObject(5, person.getAddress());
                 statement.setString(6, person.getEmailAddress());
+<<<<<<< HEAD
                 statement.setObject(7, person.getDateOfBirth());
 //                statement.setObject(8, person.getDateOfBirth());
+=======
+
+                // Get date object
+                LocalDate dobPerson = person.getDateOfBirth();
+                if (dobPerson != null) {
+                    statement.setObject(7, java.sql.Date.valueOf(dobPerson));
+                } else {
+                    // Set the date to the null object
+                    statement.setObject(7, null);   // replacing null with dobPerson will give us the same result.
+                }
+
+>>>>>>> 6f56fa4f7a7132801286b6474512facebf4e104e
                 // Execute update query
                 statement.executeUpdate();
 
@@ -102,10 +128,10 @@ public class PersonDao {
 
                         // The following fields in the person table allows null values.
                         // As such, we check if they are non-null before attempting to set the corresponding fields in the person object.
-                        if (result.getObject("address") != null) person.setAddress((Address) result.getObject("address"));
+                        if (result.getObject("address") != null) person.setAddress(result.getString("address"));
                         if (result.getString("email_address") != null) person.setEmailAddress(result.getString("email_address"));
                         if (result.getString("phone_number") != null) person.setPhoneNumber(result.getString("phone_number"));
-                        if (result.getObject("birth_date") != null) person.setDateOfBirth((LocalDate) result.getObject("birth_date"));
+                        if (result.getDate("birth_date") != null) person.setDateOfBirth(result.getDate("birth_date").toLocalDate());
 
                         return person;
                     }
@@ -131,5 +157,30 @@ public class PersonDao {
             e.printStackTrace();
         }
         return rowsDeleted;
+    }
+
+    public Person updateLastName(Person person, String newLastName) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            String sqlQuery = "UPDATE person SET lastname=? WHERE idperson=?";
+            try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
+                statement.setString(1, newLastName);
+                statement.setInt(2, person.getId());
+
+                // Execute update
+                int rowsUpdated = statement.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    // rowsUpdated will be equals to one since IDs are unique.
+                    // Update objects lastname
+                    person.setLastName(newLastName);
+                    return person;
+                } else {
+                    throw new SQLException("Failed to update lastname for person with id: " + person.getId());
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
