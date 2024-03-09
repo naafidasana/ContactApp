@@ -3,8 +3,6 @@ package isen.contactapp.database;
 import isen.contactapp.model.Person;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +23,24 @@ public class PersonDao {
                                 results.getString("firstname"),
                                 results.getString("lastname"),
                                 results.getString("nickname")
+<<<<<<< HEAD
+                               
+                        );
+                        
+                        person.setPhoneNumber( results.getString("phone_number"));
+                        person.setEmailAddress(results.getString("email_address"));
+                        String street = results.getString("Street");
+                        String city = results.getString("City");
+                     
+                        String zipCode = results.getString("Zip_Code");
+                        
+                        // Create an Address object and set it for the person
+                        Address address = new Address(city, street, zipCode);
+                        
+                        person.setAddress(address);
+                        
+=======
+>>>>>>> 6f56fa4f7a7132801286b6474512facebf4e104e
 
                         );
 
@@ -58,8 +74,21 @@ public class PersonDao {
                 statement.setString(4, person.getPhoneNumber());
                 statement.setObject(5, person.getAddress());
                 statement.setString(6, person.getEmailAddress());
-                statement.setDate(7, java.sql.Date.valueOf(person.getDateOfBirth()));
+<<<<<<< HEAD
+                statement.setObject(7, person.getDateOfBirth());
+//                statement.setObject(8, person.getDateOfBirth());
+=======
 
+                // Get date object
+                LocalDate dobPerson = person.getDateOfBirth();
+                if (dobPerson != null) {
+                    statement.setObject(7, java.sql.Date.valueOf(dobPerson));
+                } else {
+                    // Set the date to the null object
+                    statement.setObject(7, null);   // replacing null with dobPerson will give us the same result.
+                }
+
+>>>>>>> 6f56fa4f7a7132801286b6474512facebf4e104e
                 // Execute update query
                 statement.executeUpdate();
 

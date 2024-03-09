@@ -39,7 +39,23 @@ public class App extends Application {
                          + "phone_number VARCHAR(15) NULL,\r\n"
                          + "address VARCHAR(200) NULL,\r\n"
                          + "email_address VARCHAR(150) NULL,\r\n"
+<<<<<<< HEAD
+                         + "birth_date DATE  NULL,\r\n"
+                         +"City	VARCHAR(50) NULL,\r\n"
+                     	+"Zip_Code	INTEGER NULL,\r\n"
+                    	+"Street	VARCHAR(100));");
+			                 
+
+                 // Delete previously inserted data (from other tests most likely) from data
+                 statement.executeUpdate("DELETE FROM person");
+
+                 // Insert 3 Persons into table. We only insert the non-null values for now.
+                 statement.executeUpdate("INSERT INTO person(idperson, lastname, firstname, nickname) VALUES (1, 'IBRAHIM', 'Naafi', 'Prof')");
+                 statement.executeUpdate("INSERT INTO person(idperson, lastname, firstname, nickname) VALUES (2, 'KUMAH', 'Emmanuel', 'EasyBlend')");
+                 statement.executeUpdate("INSERT INTO person(idperson, lastname, firstname, nickname) VALUES (3, 'SAAD', 'Mohammad', 'Mo')");
+=======
                          + "birth_date DATE NULL);");
+>>>>>>> 6f56fa4f7a7132801286b6474512facebf4e104e
              }
         } catch (SQLException e) {
             e.printStackTrace();

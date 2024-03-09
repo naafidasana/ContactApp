@@ -39,7 +39,8 @@ public class AddContactController {
 		
 		if(Fname.isEmpty() && Lname.isEmpty() && phone.isEmpty()) {
 			try {
-				Alert alert = new Alert(AlertType.CONFIRMATION, "Fill the contact data First", ButtonType.OK);
+				Alert alert = new Alert(AlertType.ERROR, "Fill the contact data First", ButtonType.OK);
+				alert.setHeaderText("MISSING FIELDS");
 				alert.showAndWait();
 				if (alert.getResult() == ButtonType.OK) {
 				    alert.close();

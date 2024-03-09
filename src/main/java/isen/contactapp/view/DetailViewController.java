@@ -18,7 +18,7 @@ public class DetailViewController {
 
 	
 	@FXML
-	private TextField firstNameTxt,lastNameTxt,phoneTxt,emailTxt,nickTxt;
+	private TextField firstNameTxt,lastNameTxt,phoneTxt,emailTxt,nickTxt, adressTxt1,adressTxt2,adressTxt3;
 	
 	@FXML
 	private Button returnBtn,deleteBtn1;
@@ -44,6 +44,7 @@ public class DetailViewController {
 			emailTxt.setText(App.getDetailViewData().getEmailAddress());
 			phoneTxt.setText(App.getDetailViewData().getPhoneNumber());
 			nickTxt.setText(App.getDetailViewData().getNickname());
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
