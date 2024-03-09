@@ -3,8 +3,6 @@ package isen.contactapp.database;
 import isen.contactapp.model.Person;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +56,15 @@ public class PersonDao {
                 statement.setString(4, person.getPhoneNumber());
                 statement.setObject(5, person.getAddress());
                 statement.setString(6, person.getEmailAddress());
-                statement.setDate(7, java.sql.Date.valueOf(person.getDateOfBirth()));
+
+                // Get date object
+                LocalDate dobPerson = person.getDateOfBirth();
+                if (dobPerson != null) {
+                    statement.setObject(7, java.sql.Date.valueOf(dobPerson));
+                } else {
+                    // Set the date to the null object
+                    statement.setObject(7, null);   // replacing null with dobPerson will give us the same result.
+                }
 
                 // Execute update query
                 statement.executeUpdate();
