@@ -8,15 +8,21 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
+
+import java.time.LocalDate;
 
 public class AddContactController {
 	// Create PersonDao object to add person to database.
 	PersonDao personDao = new PersonDao();
 	@FXML
 	private TextField FnameTxt, LnameTxt, emailTxt, phoneTxt, cityTxt, NickTxt, streetAddressTxt, zipCodeTxt, countryTxt;
+
+	@FXML
+	private DatePicker dobPicker;
 
 	public void HandleAddContactBtn() {
 		// TODO Auto-generated constructor stub
@@ -29,6 +35,7 @@ public class AddContactController {
 		String street = streetAddressTxt != null ? streetAddressTxt.getText() : "";
 		String zipCode = zipCodeTxt != null ? zipCodeTxt.getText() : "";
 		String country = countryTxt != null ? countryTxt.getText() : "";
+		LocalDate dob = dobPicker != null ? dobPicker.getValue() : null;
 		
 		if(Fname.isEmpty() && Lname.isEmpty() && phone.isEmpty()) {
 			try {
@@ -57,6 +64,7 @@ public class AddContactController {
 							zipCode,
 							country);
 					contact.setAddress(contactAddress);
+					contact.setDateOfBirth(dob);
 					
 					Person newContact = personDao.addPerson(contact);
 					

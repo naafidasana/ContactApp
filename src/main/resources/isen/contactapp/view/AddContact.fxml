@@ -127,7 +127,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <DatePicker prefHeight="40.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dobPicker" prefHeight="40.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Label text="Date of Birth" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
