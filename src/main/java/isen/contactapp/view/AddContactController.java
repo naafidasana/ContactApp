@@ -2,10 +2,8 @@ package isen.contactapp.view;
 
 import isen.contactapp.App;
 import isen.contactapp.database.PersonDao;
-import isen.contactapp.model.Address;
 import isen.contactapp.model.Person;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
