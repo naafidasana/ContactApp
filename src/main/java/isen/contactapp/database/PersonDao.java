@@ -1,9 +1,10 @@
 package isen.contactapp.database;
 
-import isen.contactapp.model.Address;
 import isen.contactapp.model.Person;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +35,8 @@ public class PersonDao {
                             person.setEmailAddress(results.getString("email_address"));
                         if (results.getString("phone_number") != null)
                             person.setPhoneNumber(results.getString("phone_number"));
-                        if (results.getObject("birth_date") != null)
-                            person.setDateOfBirth((LocalDate) results.getObject("birth_date"));
+                        if (results.getDate("birth_date") != null)
+                            person.setDateOfBirth(results.getDate("birth_date").toLocalDate());
                         listOfPersons.add(person);
                     }
                 }
@@ -57,7 +58,7 @@ public class PersonDao {
                 statement.setString(4, person.getPhoneNumber());
                 statement.setObject(5, person.getAddress());
                 statement.setString(6, person.getEmailAddress());
-                statement.setObject(7, person.getDateOfBirth());
+                statement.setDate(7, java.sql.Date.valueOf(person.getDateOfBirth()));
 
                 // Execute update query
                 statement.executeUpdate();
@@ -101,7 +102,7 @@ public class PersonDao {
                         if (result.getObject("address") != null) person.setAddress(result.getString("address"));
                         if (result.getString("email_address") != null) person.setEmailAddress(result.getString("email_address"));
                         if (result.getString("phone_number") != null) person.setPhoneNumber(result.getString("phone_number"));
-                        if (result.getObject("birth_date") != null) person.setDateOfBirth((LocalDate) result.getObject("birth_date"));
+                        if (result.getDate("birth_date") != null) person.setDateOfBirth(result.getDate("birth_date").toLocalDate());
 
                         return person;
                     }
