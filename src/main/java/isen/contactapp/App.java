@@ -54,7 +54,6 @@ public class App extends Application {
         scene = new Scene(mainLayout);
         stage.setTitle("Contact App");
         stage.setFullScreen(false);
-        stage.requestFocus();
         stage.setScene(scene);
         stage.show();
        
