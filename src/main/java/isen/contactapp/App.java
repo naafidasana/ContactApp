@@ -43,15 +43,6 @@ public class App extends Application {
                          +"City	VARCHAR(50) NULL,\r\n"
                      	+"Zip_Code	INTEGER NULL,\r\n"
                     	+"Street	VARCHAR(100));");
-			                 
-
-                 // Delete previously inserted data (from other tests most likely) from data
-                 statement.executeUpdate("DELETE FROM person");
-
-                 // Insert 3 Persons into table. We only insert the non-null values for now.
-                 statement.executeUpdate("INSERT INTO person(idperson, lastname, firstname, nickname) VALUES (1, 'IBRAHIM', 'Naafi', 'Prof')");
-                 statement.executeUpdate("INSERT INTO person(idperson, lastname, firstname, nickname) VALUES (2, 'KUMAH', 'Emmanuel', 'EasyBlend')");
-                 statement.executeUpdate("INSERT INTO person(idperson, lastname, firstname, nickname) VALUES (3, 'SAAD', 'Mohammad', 'Mo')");
              }
         } catch (SQLException e) {
             e.printStackTrace();

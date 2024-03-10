@@ -62,6 +62,10 @@ public class PersonDao {
                 statement.setObject(5, person.getAddress());
                 statement.setString(6, person.getEmailAddress());
 
+                statement.setObject(7, person.getDateOfBirth());
+
+
+
                 // Get date object
                 LocalDate dobPerson = person.getDateOfBirth();
                 if (dobPerson != null) {

@@ -56,12 +56,7 @@ public class AddContactController {
 					contact.setPhoneNumber(phone);
 					contact.setNickname(nick);
 					contact.setEmailAddress(email);
-					String contactAddress = String.format(
-							"%s\n%s, %s %s",
-							street,
-							city,
-							zipCode,
-							country);
+					String contactAddress = street + "\n" + zipCode + "\n" + city + "\n" + country;
 					contact.setAddress(contactAddress);
 					contact.setDateOfBirth(dob);
 					
@@ -80,16 +75,12 @@ public class AddContactController {
 			            stage.close();
 					}
 					
-					
-					
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
 				}
-				
-				
+
 			}
 	}
-	
 
 }
