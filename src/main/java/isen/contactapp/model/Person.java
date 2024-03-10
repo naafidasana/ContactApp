@@ -74,12 +74,6 @@ public class Person {
     public String getAddress() { return this.address; }
 
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
-    
-    public String getCountry() { return this.country; }
-    public String getCity() { return this.city; }
-    public String getStreet() { return this.street; }
-    public String getZip() { return this.zip; }
-
 
     @Override
     public String toString() {

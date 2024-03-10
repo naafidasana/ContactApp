@@ -13,6 +13,7 @@ import java.time.LocalDate;
 
 public class DetailViewController {
 
+    PersonDao personDao = new PersonDao();
 	
 	@FXML
 	private TextField firstNameTxt,lastNameTxt,phoneTxt,emailAddressTxt,NickTxt, countryTxt, cityTxt,streetAddressTxt,zipCodeTxt;
@@ -22,6 +23,8 @@ public class DetailViewController {
 	
 	@FXML
 	private Button returnBtn,deleteBtn1, updateBtn;
+
+    private boolean isModified = false;
 	
 	public void initialize() {
 		
@@ -31,11 +34,17 @@ public class DetailViewController {
 			emailAddressTxt.setText(App.getDetailViewData().getEmailAddress());
 			phoneTxt.setText(App.getDetailViewData().getPhoneNumber());
 			NickTxt.setText(App.getDetailViewData().getNickname());
-			countryTxt.setText(App.getDetailViewData().getCountry());
-			cityTxt.setText(App.getDetailViewData().getCity());
-			streetAddressTxt.setText(App.getDetailViewData().getStreet());
-			zipCodeTxt.setText(App.getDetailViewData().getZip());
             dobPicker.setValue(App.getDetailViewData().getDateOfBirth());
+
+            // Get and split address string into respective fields
+            String fullAddress = App.getDetailViewData().getAddress();
+            String[] addressComponents = fullAddress.split("\n");
+            // street address, zip code, city, country
+            streetAddressTxt.setText(addressComponents[0]);
+            zipCodeTxt.setText(addressComponents[1]);
+            cityTxt.setText(addressComponents[2]);
+            countryTxt.setText(addressComponents[3]);
+
 
 			
 		} catch (Exception e) {
@@ -75,7 +84,6 @@ public class DetailViewController {
 		}
 		
 	}
-	
 
 	public void handleDeleteBtn() {
 		try {
@@ -85,7 +93,7 @@ public class DetailViewController {
 
 			if (alert.getResult() == ButtonType.YES) {
 			    //do stuff
-				 new PersonDao().deletePerson(App.getDetailViewData());
+				 Integer rowsDeleted = personDao.deletePerson(App.getDetailViewData());
 			}
 		App.setRoot("ContactsListingView");
 		} catch (Exception e) {
@@ -118,16 +126,16 @@ public class DetailViewController {
         personToUpdate.setEmailAddress(newEmail);
         personToUpdate.setPhoneNumber(newPhone);
         personToUpdate.setNickname(newNickName);
-        personToUpdate.setCountry(newCountry);
-        personToUpdate.setCity(newCity);
-        personToUpdate.setStreet(newStreet);
-        personToUpdate.setZip(newZip);
+
+        // Concatenate address components into string before setting.
+        String address = newStreet + "\n" + newZip + "\n" + newCity + "\n" + newCountry;
+        personToUpdate.setAddress(address);
         personToUpdate.setDateOfBirth(newDateOfBirth);
         
 
         try {
             // Update the Person in the database
-            new PersonDao().updatePerson(personToUpdate, personToUpdate.getId());
+            Person updatedPerson = personDao.updatePerson(personToUpdate, personToUpdate.getId());
             
             // Display a success message
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -158,6 +166,7 @@ public class DetailViewController {
         }
     }
 
+    // Listener to detect changes in date picker
     private class DateFieldChangeListener implements  ChangeListener<LocalDate> {
         @Override
         public void changed(ObservableValue<? extends LocalDate> observableValue, LocalDate oldValue, LocalDate newValue) {
