@@ -1,0 +1,91 @@
+/* Button Styles */
+.button {
+    -fx-background-color: #3498db; /* Blue */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9; /* Darker Blue */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+/* Text Styles */
+.text {
+    -fx-font-size: 18px;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: #333; /* Dark Gray */
+}
+
+.text-large {
+    -fx-font-size: 24px;
+}
+
+.text-small {
+    -fx-font-size: 14px;
+}
+
+.text-bold {
+    -fx-font-weight: bold;
+}
+
+.text-italic {
+    -fx-font-style: italic;
+}
+
+
+.button-primary {
+    -fx-background-color: #3498db; /* Blue */
+    -fx-text-fill: white;
+}
+
+.button-primary:hover {
+    -fx-background-color: #2980b9; /* Darker Blue */
+}
+
+.button-secondary {
+    -fx-background-color: #2ecc71; /* Green */
+    -fx-text-fill: white;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #27ae60; /* Darker Green */
+}
+
+.button-danger {
+    -fx-background-color: #e74c3c; /* Red */
+    -fx-text-fill: white;
+}
+
+.button-danger:hover {
+    -fx-background-color: #c0392b; /* Darker Red */
+}
+
+/* Text Styles */
+.text-primary {
+    -fx-font-size: 18px;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: #3498db; /* Blue */
+}
+
+.text-secondary {
+    -fx-font-size: 18px;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: #2ecc71; /* Green */
+}
+
+.text-danger {
+    -fx-font-size: 18px;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: #e74c3c; /* Red */
+}
+
+/* Additional Styles */
+/* Add more styles as needed */
