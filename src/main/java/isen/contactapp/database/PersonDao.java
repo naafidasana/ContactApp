@@ -170,4 +170,11 @@ public class PersonDao {
         return null;
     }
 
+    public Person updateFirstName(Person person, String newFirstName) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            String sqlQuery = "UPDATE person SET "
+        } catch (SQLException e) {
+            e.getNextException();
+        }
+    }
 }
