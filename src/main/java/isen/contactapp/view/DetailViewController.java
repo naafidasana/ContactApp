@@ -38,7 +38,7 @@ public class DetailViewController {
 
             // Get and split address string into respective fields
             String fullAddress = App.getDetailViewData().getAddress();
-            String[] addressComponents = fullAddress.split("\n");
+            String[] addressComponents = fullAddress != null ? fullAddress.split("\n") : new String[]{"", "", "", ""};
             // street address, zip code, city, country
             streetAddressTxt.setText(addressComponents[0]);
             zipCodeTxt.setText(addressComponents[1]);
