@@ -1,0 +1,24 @@
+2024-03-09 15:54:26,719 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-09 15:56:47,733 [Worker-2: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-03-09 15:56:49,957 [Worker-2: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: isen:ContactApp:1.0-SNAPSHOT @ D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\pom.xml.
+2024-03-09 15:56:53,215 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ContactApp/src/main/java
+2024-03-09 15:56:53,216 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ContactApp/src/main/resources
+2024-03-09 15:56:53,225 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ContactApp/src/test/java
+2024-03-09 15:56:53,226 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ContactApp/src/test/resources
+2024-03-09 15:56:55,888 [Worker-2: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 3.00 sec, update config takes 4.00 sec 
+2024-03-09 15:56:56,362 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-03-09 15:56:56,379 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources
+2024-03-09 16:03:14,626 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-03-09 16:03:14,635 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources
+2024-03-09 16:07:20,707 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-03-09 16:07:20,715 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources
+2024-03-09 16:09:42,073 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-03-09 16:09:42,076 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources
+2024-03-09 16:10:12,380 [Worker-6: Launching App] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-03-09 16:10:12,386 [Worker-6: Launching App] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources
+2024-03-09 16:11:19,393 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-03-09 16:11:19,398 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources
+2024-03-09 16:12:13,332 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-03-09 16:12:13,339 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources
+2024-03-09 16:12:19,818 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-03-09 16:12:19,823 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\JUNIA\m1s2\java2\project\ContactApp\ContactApp\src\test\resources

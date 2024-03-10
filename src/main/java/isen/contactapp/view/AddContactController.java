@@ -35,6 +35,9 @@ public class AddContactController {
 		String country = countryTxt != null ? countryTxt.getText() : "";
 		LocalDate dob = dobPicker != null ? dobPicker.getValue() : null;
 		
+		
+
+		
 		if(Fname.isEmpty() && Lname.isEmpty() && phone.isEmpty()) {
 			try {
 				Alert alert = new Alert(AlertType.ERROR, "Fill the contact data First", ButtonType.OK);
@@ -57,8 +60,7 @@ public class AddContactController {
 					contact.setNickname(nick);
 					contact.setEmailAddress(email);
 					String contactAddress = street + "\n" + zipCode + "\n" + city + "\n" + country;
-					contact.setAddress(contactAddress);
-					contact.setDateOfBirth(dob);
+
 					
 					Person newContact = personDao.addPerson(contact);
 					
