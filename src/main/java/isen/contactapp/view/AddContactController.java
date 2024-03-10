@@ -59,20 +59,8 @@ public class AddContactController {
 					contact.setPhoneNumber(phone);
 					contact.setNickname(nick);
 					contact.setEmailAddress(email);
-<<<<<<< HEAD
 					String contactAddress = street + "\n" + zipCode + "\n" + city + "\n" + country;
-=======
-					
-					
-					String contactAddress = String.format(
-							"%s\n%s, %s %s",
-							street,
-							city,
-							zipCode,
-							country);
->>>>>>> saad-test
-					contact.setAddress(contactAddress);
-					contact.setDateOfBirth(dob);
+
 					
 					Person newContact = personDao.addPerson(contact);
 					
