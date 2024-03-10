@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,11 +15,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.contactapp.view.DetailViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="654.0" styleClass="root" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.contactapp.view.DetailViewController">
    <children>
-      <HBox alignment="CENTER" layoutX="19.0" layoutY="335.0" prefHeight="43.0" prefWidth="551.0" spacing="100.0">
+      <HBox alignment="CENTER" layoutX="52.0" layoutY="343.0" prefHeight="43.0" prefWidth="551.0" spacing="100.0">
          <children>
-            <Button fx:id="returnBtn" alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" mnemonicParsing="false" onAction="#handleReturnBtn" prefHeight="43.0" prefWidth="220.0" stylesheets="@../style.css" text="Return" textOverrun="WORD_ELLIPSIS">
+            <Button fx:id="returnBtn" alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" mnemonicParsing="false" onAction="#handleReturnBtn" prefHeight="43.0" prefWidth="220.0" styleClass="button-primary" stylesheets="@../style.css" text="Return" textOverrun="WORD_ELLIPSIS">
                <effect>
                   <DropShadow height="12.21" radius="6.3375" width="15.14">
                      <color>
@@ -56,12 +57,22 @@
             </Button>
          </children>
       </HBox>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 680323c786f7659827a5a00e2e1280b659f0a6ab
       <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="10.0" text="Contact Detail" textFill="#07223c">
          <font>
             <Font size="24.0" />
          </font>
+<<<<<<< HEAD
       </Label>
       <GridPane alignment="CENTER" hgap="20.0" layoutX="19.0" layoutY="24.0" prefHeight="279.0" prefWidth="574.0">
+=======
+      </Label>   
+
+      <GridPane alignment="CENTER" hgap="20.0" layoutX="41.0" layoutY="45.0" prefHeight="279.0" prefWidth="574.0">
+>>>>>>> 680323c786f7659827a5a00e2e1280b659f0a6ab
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.0" minWidth="5.0" prefWidth="200.0" />
             <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="200.0" />
@@ -177,12 +188,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Address:" GridPane.rowIndex="7">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
          </children>
       </GridPane>
+<<<<<<< HEAD
+=======
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="385.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 50; -fx-image: https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMjItbWluZC0xNl8xLmpwZw.jpg;" />
+>>>>>>> 680323c786f7659827a5a00e2e1280b659f0a6ab
    </children>
 </AnchorPane>
