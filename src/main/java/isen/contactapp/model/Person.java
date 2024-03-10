@@ -57,8 +57,6 @@ public class Person {
     public String getAddress() { return this.address; }
 
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
-    
-
 
     @Override
     public String toString() {

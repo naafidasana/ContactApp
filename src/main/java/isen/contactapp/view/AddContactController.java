@@ -2,10 +2,8 @@ package isen.contactapp.view;
 
 import isen.contactapp.App;
 import isen.contactapp.database.PersonDao;
-import isen.contactapp.model.Address;
 import isen.contactapp.model.Person;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
@@ -58,12 +56,7 @@ public class AddContactController {
 					contact.setPhoneNumber(phone);
 					contact.setNickname(nick);
 					contact.setEmailAddress(email);
-					String contactAddress = String.format(
-							"%s\n%s, %s %s",
-							street,
-							city,
-							zipCode,
-							country);
+					String contactAddress = street + "\n" + zipCode + "\n" + city + "\n" + country;
 					contact.setAddress(contactAddress);
 					contact.setDateOfBirth(dob);
 					
@@ -82,16 +75,12 @@ public class AddContactController {
 			            stage.close();
 					}
 					
-					
-					
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
 				}
-				
-				
+
 			}
 	}
-	
 
 }
