@@ -22,13 +22,9 @@ public class DetailViewController {
 	
 	@FXML
 	private Button returnBtn,deleteBtn1, updateBtn;
-
-    private boolean isModified = false;
 	
 	public void initialize() {
-		System.out.println("Selected item: " +App.getDetailViewData());
 		
-		// TODO Auto-generated constructor stub
 		try {
 			firstNameTxt.setText(App.getDetailViewData().getFirstName());
 			lastNameTxt.setText(App.getDetailViewData().getLastName());
@@ -134,7 +130,7 @@ public class DetailViewController {
             new PersonDao().updatePerson(personToUpdate, personToUpdate.getId());
             
             // Display a success message
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Update Successful");
             alert.setHeaderText(null);
             alert.setContentText("Contact details updated successfully.");

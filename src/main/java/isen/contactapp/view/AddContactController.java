@@ -1,6 +1,5 @@
 package isen.contactapp.view;
 
-import isen.contactapp.App;
 import isen.contactapp.database.PersonDao;
 import isen.contactapp.model.Person;
 import javafx.fxml.FXML;
@@ -67,9 +66,7 @@ public class AddContactController {
 					
 					App.setRoot("MainLayout");
 					
-					System.out.print("Name"+contact);
-					
-					Alert alert = new Alert(AlertType.CONFIRMATION, newContact  + " has been added", ButtonType.FINISH);
+					Alert alert = new Alert(AlertType.INFORMATION, newContact.getFullName()  + " has been added", ButtonType.FINISH);
 					alert.showAndWait();
 
 					if (alert.getResult() == ButtonType.FINISH) {

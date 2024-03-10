@@ -104,7 +104,6 @@ public class ContactsListingViewController{
        
     
     public void handleButtonClick() {
-    	System.out.println(myArrList.size());
         try {
             // Get the selected item from the list view
             
