@@ -52,8 +52,12 @@ public class App extends Application {
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
         mainLayout = loadFXML("MainLayout");
         scene = new Scene(mainLayout);
+        stage.setTitle("Contact App");
+        stage.setFullScreen(false);
+        stage.requestFocus();
         stage.setScene(scene);
         stage.show();
+       
     }
 
     public static void main(String[] args) {
@@ -89,5 +93,6 @@ public class App extends Application {
     public static void setDetailViewData(@SuppressWarnings("exports") Person data) {
         detailViewData = data;
     }
+    
 
 }

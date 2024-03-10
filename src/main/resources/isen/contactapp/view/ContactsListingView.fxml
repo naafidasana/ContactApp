@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -10,7 +11,7 @@
 
 <AnchorPane prefHeight="448.0" prefWidth="651.0" styleClass="roo" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.contactapp.view.ContactsListingViewController">
    <children>
-      <VBox alignment="CENTER" layoutX="180.0" layoutY="28.0" spacing="30.0">
+      <VBox alignment="CENTER" layoutX="154.0" layoutY="7.0" spacing="30.0">
          <children>
             <VBox alignment="CENTER" spacing="20.0">
                <children>
@@ -19,7 +20,7 @@
                         <Font name="Calibri" size="30.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="myListView" prefHeight="214.0" prefWidth="248.0" stylesheets="@../style.css" />
+                  <ListView fx:id="myListView" prefHeight="225.0" prefWidth="343.0" stylesheets="@../style.css" />
                   <Label fx:id="labelDetail" alignment="CENTER" contentDisplay="CENTER" snapToPixel="false" stylesheets="@../style.css" text="Emmanuel" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
@@ -27,17 +28,21 @@
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER" spacing="10.0">
+            <VBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button fx:id="detailButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonClick" styleClass="button-secondary" stylesheets="@../style.css" text="View Details" textAlignment="CENTER" />
+                  <Button fx:id="detailButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="39.0" prefWidth="151.0" styleClass="button-secondary" stylesheets="@../style.css" text="View Details" textAlignment="CENTER" />
                   <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddButtonClick" styleClass="custom-button" stylesheets="@../style.css" text="Add a Contact" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
             </VBox>
          </children>
       </VBox>
+      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleHomeButtonClick" style="-fx-background-radius: 5;" text="Home" />
    </children>
 </AnchorPane>

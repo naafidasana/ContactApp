@@ -13,9 +13,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class ContactsListingViewController{
@@ -27,7 +30,7 @@ public class ContactsListingViewController{
     private Label labelDetail;
     
     @FXML
-    private Button detailButton, addButton;
+    private Button detailButton, addButton, homeButton;
     
    
     PersonDao personDao = new PersonDao();
@@ -38,12 +41,12 @@ public class ContactsListingViewController{
     
     List<String> myArrList = new ArrayList<>();
     
+    Boolean selected = false;
     
     public void setList() {
         if(d.isEmpty()) {
         	return ;
         }else {
-        	 System.out.println(d);
         for(int i = 0; i < d.size(); i++) {
             myArrList.add(d.get(i).getFirstName()+" "+d.get(i).getLastName());
         }
@@ -57,13 +60,11 @@ public class ContactsListingViewController{
                  public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                      // Update labelDetail when an item is selected
                      labelDetail.setText(myListView.getSelectionModel().getSelectedItem());
-                     
+                     selected = true;
                      // Update DetailViewData when an item is selected
                      String selectedItem = myListView.getSelectionModel().getSelectedItem();
                      for (Person person : d) {
                          if (person.getFullName().equals(selectedItem)) {
-                        	 
-                        	 System.out.println(person);
                              App.setDetailViewData(person);
                              break;
                          }
@@ -105,19 +106,29 @@ public class ContactsListingViewController{
     
     public void handleButtonClick() {
         try {
-            // Get the selected item from the list view
-            
-            // Pass the selected item to the next view
-            
-            
+           if(selected)
             // Navigate to the next view
             App.setRoot("DetailView");
+           else 
+           {Alert alert = new Alert(AlertType.ERROR, "Select a contact to view Details", ButtonType.OK);
+			alert.setHeaderText("No conact Selected!");
+			alert.showAndWait();}
         } catch (Exception e) {
             // Handle any exceptions
             e.printStackTrace();
         }
     }
     
+    
+    public void handleHomeButtonClick() {
+    	try {
+			App.setRoot("MainLayout");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+    }
  
    
            
