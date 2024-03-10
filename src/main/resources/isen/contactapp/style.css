@@ -22,7 +22,7 @@
 
 
 .button-primary {
-    -fx-background-color: #3498db; /* Blue */
+    -fx-background-color: #cccccc; /* Blue */
     -fx-text-fill: white;
 }
 

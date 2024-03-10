@@ -9,7 +9,6 @@ import isen.contactapp.database.PersonDao;
 import isen.contactapp.model.Person;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,6 +34,8 @@ public class ContactsListingViewController{
     
     List<Person> d = personDao.fetchAllPersons();
     
+   
+    
     List<String> myArrList = new ArrayList<>();
     
     
@@ -44,7 +45,7 @@ public class ContactsListingViewController{
         }else {
         	 System.out.println(d);
         for(int i = 0; i < d.size(); i++) {
-            myArrList.add(d.get(i).getFirstName());
+            myArrList.add(d.get(i).getFirstName()+" "+d.get(i).getLastName());
         }
         
         // Initialize the labelsContainer
@@ -60,7 +61,7 @@ public class ContactsListingViewController{
                      // Update DetailViewData when an item is selected
                      String selectedItem = myListView.getSelectionModel().getSelectedItem();
                      for (Person person : d) {
-                         if (person.getFirstName().equals(selectedItem)) {
+                         if (person.getFullName().equals(selectedItem)) {
                         	 
                         	 System.out.println(person);
                              App.setDetailViewData(person);
@@ -75,9 +76,6 @@ public class ContactsListingViewController{
   
    @FXML
    public void initialize() {
-       // Fetch persons.
-       d = personDao.fetchAllPersons();
-
        if(d.isEmpty()) {
            labelDetail.setText("You have No Contacts!");
            detailButton.setVisible(false);

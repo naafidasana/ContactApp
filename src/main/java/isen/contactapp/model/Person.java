@@ -63,6 +63,8 @@ public class Person {
 
     public String getLastName() { return this.lastName; }
 
+    public String getFullName() { return this.firstName +" "+ this.lastName; }
+    
     public String getNickname() { return this.nickname; }
 
     public String getPhoneNumber() { return this.phoneNumber; }
