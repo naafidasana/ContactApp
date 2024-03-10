@@ -6,48 +6,41 @@ import isen.contactapp.model.Person;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+
+import java.time.LocalDate;
 
 public class DetailViewController {
 
 	
 	@FXML
-	private TextField firstNameTxt,lastNameTxt,phoneTxt,emailTxt,nickTxt, countryTxt, cityTxt,streetTxt,zipTxt;
+	private TextField firstNameTxt,lastNameTxt,phoneTxt,emailAddressTxt,NickTxt, countryTxt, cityTxt,streetAddressTxt,zipCodeTxt;
+
+    @FXML
+    private DatePicker dobPicker;
 	
 	@FXML
 	private Button returnBtn,deleteBtn1, updateBtn;
-	
-	@FXML
-	private Label title;
 
     private boolean isModified = false;
-
-
-
-	
-
 	
 	public void initialize() {
 		System.out.println("Selected item: " +App.getDetailViewData());
-		
-		title.setText(App.getDetailViewData().getFirstName()+" - "+App.getDetailViewData().getLastName());
 		
 		// TODO Auto-generated constructor stub
 		try {
 			firstNameTxt.setText(App.getDetailViewData().getFirstName());
 			lastNameTxt.setText(App.getDetailViewData().getLastName());
-			emailTxt.setText(App.getDetailViewData().getEmailAddress());
+			emailAddressTxt.setText(App.getDetailViewData().getEmailAddress());
 			phoneTxt.setText(App.getDetailViewData().getPhoneNumber());
-			nickTxt.setText(App.getDetailViewData().getNickname());
+			NickTxt.setText(App.getDetailViewData().getNickname());
 			countryTxt.setText(App.getDetailViewData().getCountry());
 			cityTxt.setText(App.getDetailViewData().getCity());
-			streetTxt.setText(App.getDetailViewData().getStreet());
-			zipTxt.setText(App.getDetailViewData().getZip());
+			streetAddressTxt.setText(App.getDetailViewData().getStreet());
+			zipCodeTxt.setText(App.getDetailViewData().getZip());
+            dobPicker.setValue(App.getDetailViewData().getDateOfBirth());
+
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -57,13 +50,14 @@ public class DetailViewController {
         // Add change listeners to text fields
         firstNameTxt.textProperty().addListener(new TextFieldChangeListener());
         lastNameTxt.textProperty().addListener(new TextFieldChangeListener());
-        emailTxt.textProperty().addListener(new TextFieldChangeListener());
+        emailAddressTxt.textProperty().addListener(new TextFieldChangeListener());
         phoneTxt.textProperty().addListener(new TextFieldChangeListener());
-        nickTxt.textProperty().addListener(new TextFieldChangeListener());
+        NickTxt.textProperty().addListener(new TextFieldChangeListener());
         countryTxt.textProperty().addListener(new TextFieldChangeListener());
         cityTxt.textProperty().addListener(new TextFieldChangeListener());
-        streetTxt.textProperty().addListener(new TextFieldChangeListener());
-        zipTxt.textProperty().addListener(new TextFieldChangeListener());
+        streetAddressTxt.textProperty().addListener(new TextFieldChangeListener());
+        zipCodeTxt.textProperty().addListener(new TextFieldChangeListener());
+        dobPicker.valueProperty().addListener(new DateFieldChangeListener());
 
 		
         // Disable update button initially
@@ -104,23 +98,19 @@ public class DetailViewController {
 		}
 		
 	}
-	
-//    public void handleUpdateBtn() {
-//        // Implement update functionality here
-//        System.out.println("Update button clicked");
-//    }
 
     public void handleUpdateBtn() {
         // Retrieve modified data from the text fields
         String newFirstName = firstNameTxt.getText();
         String newLastName = lastNameTxt.getText();
-        String newEmail = emailTxt.getText();
+        String newEmail = emailAddressTxt.getText();
         String newPhone = phoneTxt.getText();
-        String newNickName = nickTxt.getText();
+        String newNickName = NickTxt.getText();
         String newCountry = countryTxt.getText();
         String newCity = cityTxt.getText();
-        String newStreet = streetTxt.getText();
-        String newZip = zipTxt.getText();
+        String newStreet = streetAddressTxt.getText();
+        String newZip = zipCodeTxt.getText();
+        LocalDate newDateOfBirth = dobPicker.getValue();
         
 
         // Get the Person object to update
@@ -136,6 +126,7 @@ public class DetailViewController {
         personToUpdate.setCity(newCity);
         personToUpdate.setStreet(newStreet);
         personToUpdate.setZip(newZip);
+        personToUpdate.setDateOfBirth(newDateOfBirth);
         
 
         try {
@@ -167,6 +158,14 @@ public class DetailViewController {
         @Override
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
             isModified = true;
+            updateBtn.setDisable(false);
+        }
+    }
+
+    private class DateFieldChangeListener implements  ChangeListener<LocalDate> {
+        @Override
+        public void changed(ObservableValue<? extends LocalDate> observableValue, LocalDate oldValue, LocalDate newValue) {
+            isModified=true;
             updateBtn.setDisable(false);
         }
     }

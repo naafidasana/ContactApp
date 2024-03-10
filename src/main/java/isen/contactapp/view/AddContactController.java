@@ -60,8 +60,9 @@ public class AddContactController {
 					contact.setNickname(nick);
 					contact.setEmailAddress(email);
 					String contactAddress = street + "\n" + zipCode + "\n" + city + "\n" + country;
+					contact.setAddress(contactAddress);
+					contact.setDateOfBirth(dob);
 
-					
 					Person newContact = personDao.addPerson(contact);
 					
 					App.setRoot("MainLayout");
