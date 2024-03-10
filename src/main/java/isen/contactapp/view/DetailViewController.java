@@ -44,8 +44,6 @@ public class DetailViewController {
             zipCodeTxt.setText(addressComponents[1]);
             cityTxt.setText(addressComponents[2]);
             countryTxt.setText(addressComponents[3]);
-
-
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -68,16 +66,10 @@ public class DetailViewController {
         // Disable update button initially
         updateBtn.setDisable(true);
 	}
-	
 
 	public void handleReturnBtn() {
 		try {
 			App.setRoot("ContactsListingView");
-//			Stage stages = new Stage();
-//			Parent root = FXMLLoader.load(getClass().getResource("/isen/contactapp/ContactsListingView.fxml"));
-//			stages.setTitle("All Contacts");
-//			stages.setScene(new Scene(root));
-//			stages.show();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -115,7 +107,6 @@ public class DetailViewController {
         String newStreet = streetAddressTxt.getText();
         String newZip = zipCodeTxt.getText();
         LocalDate newDateOfBirth = dobPicker.getValue();
-        
 
         // Get the Person object to update
         Person personToUpdate = App.getDetailViewData();
@@ -131,7 +122,6 @@ public class DetailViewController {
         String address = newStreet + "\n" + newZip + "\n" + newCity + "\n" + newCountry;
         personToUpdate.setAddress(address);
         personToUpdate.setDateOfBirth(newDateOfBirth);
-        
 
         try {
             // Update the Person in the database

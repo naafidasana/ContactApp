@@ -47,14 +47,6 @@ public class Person {
 
     public void setDateOfBirth(LocalDate dateOfBirth) { this.dateOfBirth = dateOfBirth; }
     
-    public void setCountry(String country) { this.country = country; }
-    public void setCity(String city) { this.city = city; }
-    public void setStreet(String street) { this.street = street; }
-    public void setZip(String zip) { this.zip = zip; }
-    
-    
-    
-    
 
     // Getters for Person class.
     public Integer getId() { return this.id; }  

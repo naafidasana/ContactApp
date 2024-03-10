@@ -24,21 +24,18 @@ import javafx.stage.Stage;
 public class ContactsListingViewController{
 
     @FXML
-    private ListView<String> myListView; // Assuming this is the VBox where you want to add labels
+    private ListView<String> myListView; // Vbox in which we'll be adding the labels.
     
     @FXML
     private Label labelDetail;
     
     @FXML
     private Button detailButton, addButton, homeButton;
-    
-   
+
     PersonDao personDao = new PersonDao();
     
     List<Person> d = personDao.fetchAllPersons();
-    
-   
-    
+
     List<String> myArrList = new ArrayList<>();
     
     Boolean selected = false;
@@ -84,8 +81,7 @@ public class ContactsListingViewController{
            setList();
        }
    }
-   
-   
+
    public void handleAddButtonClick() {
 		   try {
 			   FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddContact.fxml"));
@@ -100,10 +96,6 @@ public class ContactsListingViewController{
 		   }
    }
 
-   
-        
-       
-    
     public void handleButtonClick() {
         try {
            if(selected)
@@ -111,15 +103,14 @@ public class ContactsListingViewController{
             App.setRoot("DetailView");
            else 
            {Alert alert = new Alert(AlertType.ERROR, "Select a contact to view Details", ButtonType.OK);
-			alert.setHeaderText("No conact Selected!");
+			alert.setHeaderText("No contact selected!");
 			alert.showAndWait();}
         } catch (Exception e) {
             // Handle any exceptions
             e.printStackTrace();
         }
     }
-    
-    
+
     public void handleHomeButtonClick() {
     	try {
 			App.setRoot("MainLayout");
@@ -129,7 +120,4 @@ public class ContactsListingViewController{
 			e.printStackTrace();
 		}
     }
- 
-   
-           
 }
