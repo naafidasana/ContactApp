@@ -18,27 +18,7 @@
 }
 
 /* Text Styles */
-.text {
-    -fx-font-size: 18px;
-    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    -fx-text-fill: #333; /* Dark Gray */
-}
 
-.text-large {
-    -fx-font-size: 24px;
-}
-
-.text-small {
-    -fx-font-size: 14px;
-}
-
-.text-bold {
-    -fx-font-weight: bold;
-}
-
-.text-italic {
-    -fx-font-style: italic;
-}
 
 
 .button-primary {
@@ -86,6 +66,33 @@
     -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     -fx-text-fill: #e74c3c; /* Red */
 }
+
+
+.root {
+     -fx-background-image: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMjItbWluZC0xNl8xLmpwZw.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover; /* Adjust as needed */
+    -fx-background-position: center center;
+}
+
+.root1 {
+     -fx-background-image: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0zMDktYWV3LTAxM18xXzEuanBn.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover; /* Adjust as needed */
+    -fx-background-position: center center;
+}
+
+.root2 {
+     -fx-background-image: url("https://www.shutterstock.com/shutterstock/photos/2281284523/display_1500/stock-vector-abstract-white-background-minimal-geometric-white-light-background-abstract-design-2281284523.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover; /* Adjust as needed */
+    -fx-background-position: center center;
+}
+
+.whiteTxt{
+	-fx-text-fill:white;
+}
+
 
 /* Additional Styles */
 /* Add more styles as needed */
