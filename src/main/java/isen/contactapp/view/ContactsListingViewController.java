@@ -21,6 +21,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
+/**
+ * The ContactsListingViewController class manages the listing of contacts and their details.
+ */
 public class ContactsListingViewController{
 
     @FXML
@@ -39,16 +42,19 @@ public class ContactsListingViewController{
     List<String> myArrList = new ArrayList<>();
     
     Boolean selected = false;
-    
+
+    /**
+     * Sets up the list of contacts.
+     */
     public void setList() {
-        if(d.isEmpty()) {
+        if (d.isEmpty()) {
         	return ;
-        }else {
-        for(int i = 0; i < d.size(); i++) {
-            myArrList.add(d.get(i).getFirstName()+" "+d.get(i).getLastName());
-        }
+        } else {
+            for (int i = 0; i < d.size(); i++) {
+                myArrList.add(d.get(i).getFirstName()+" "+d.get(i).getLastName());
+            }
         
-        // Initialize the labelsContainer
+            // Initialize the labelsContainer
         
         	 myListView.getItems().addAll(myArrList);
              labelDetail.setText(myArrList.get(0));
@@ -69,7 +75,7 @@ public class ContactsListingViewController{
                  }
              });
          
-         }
+        }
     }
   
    @FXML

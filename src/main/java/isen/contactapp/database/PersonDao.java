@@ -7,8 +7,17 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The PersonDao class provides methods to interact with the database
+ * for CRUD operations related to Person entities.
+ */
 public class PersonDao {
 
+    /**
+     * Fetches all persons from the database.
+     *
+     * @return A list of Person objects containing data fetched from the database.
+     */
     public List<Person> fetchAllPersons() {
         List<Person> listOfPersons = new ArrayList<>();
 
@@ -51,6 +60,12 @@ public class PersonDao {
         return listOfPersons;
     }
 
+    /**
+     * Adds a new person to the database.
+     *
+     * @param person The Person object to be added to the database.
+     * @return The Person object added to the database.
+     */
     public Person addPerson(Person person) {
         try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             String sqlQuery = "INSERT INTO person(lastname, firstname, nickname, phone_number, address, email_address, birth_date) VALUES (?,?,?,?,?,?,?)";
@@ -97,6 +112,12 @@ public class PersonDao {
         return person;
     }
 
+    /**
+     * Retrieves a person from the database by their ID.
+     *
+     * @param id The ID of the person to be retrieved.
+     * @return The Person object corresponding to the given ID, or null if not found.
+     */
     public Person getPersonById(Integer id) {
 
         try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
@@ -129,6 +150,12 @@ public class PersonDao {
         return null;
     }
 
+    /**
+     * Deletes a person from the database.
+     *
+     * @param person The Person object to be deleted from the database.
+     * @return The number of rows deleted from the database.
+     */
     public Integer deletePerson(Person person) {
         Integer rowsDeleted = 0;
         try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
@@ -144,8 +171,14 @@ public class PersonDao {
         }
         return rowsDeleted;
     }
-    
-    // Update a Person object in the database
+
+    /**
+     * Updates a Person object in the database.
+     *
+     * @param person              The updated Person object.
+     * @param idOfPersonToUpdate The ID of the person to be updated.
+     * @return The updated Person object from the database.
+     */
     public Person updatePerson(Person person, Integer idOfPersonToUpdate) {
         try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             String sqlQuery = "UPDATE person SET firstname=?, lastname=?, nickname=?, phone_number=?, address=?, email_address=?, birth_date=? WHERE idperson=?";

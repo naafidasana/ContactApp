@@ -11,6 +11,10 @@ import javafx.scene.control.Alert.AlertType;
 
 import java.time.LocalDate;
 
+/**
+ * The DetailViewController class manages the detailed view of a contact's information and handles
+ * operations such as updating and deleting contacts.
+ */
 public class DetailViewController {
 
     PersonDao personDao = new PersonDao();
@@ -25,8 +29,11 @@ public class DetailViewController {
 	private Button returnBtn,deleteBtn1, updateBtn;
 
     private boolean isModified = false;
-	
-	public void initialize() {
+
+    /**
+     * Initializes the detail view with the contact's information.
+     */
+    public void initialize() {
 		
 		try {
 			firstNameTxt.setText(App.getDetailViewData().getFirstName());
@@ -67,7 +74,10 @@ public class DetailViewController {
         updateBtn.setDisable(true);
 	}
 
-	public void handleReturnBtn() {
+    /**
+     * Handles the event when the return button is clicked.
+     */
+    public void handleReturnBtn() {
 		try {
 			App.setRoot("ContactsListingView");
 		} catch (Exception e) {
@@ -77,7 +87,10 @@ public class DetailViewController {
 		
 	}
 
-	public void handleDeleteBtn() {
+    /**
+     * Handles the event when the delete button is clicked.
+     */
+    public void handleDeleteBtn() {
 		try {
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION, "Delete " + App.getDetailViewData().getFirstName() + " ?", ButtonType.YES, ButtonType.CANCEL);
@@ -95,6 +108,9 @@ public class DetailViewController {
 		
 	}
 
+    /**
+     * Handles the event when the update button is clicked.
+     */
     public void handleUpdateBtn() {
         // Retrieve modified data from the text fields
         String newFirstName = firstNameTxt.getText();

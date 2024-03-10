@@ -15,6 +15,9 @@ import java.sql.Statement;
 import isen.contactapp.model.Person;
 
 
+/**
+ * The App class serves as the entry point for the Contact App application.
+ */
 public class App extends Application {
 
     private static Scene scene;
@@ -48,6 +51,13 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Initializes the primary stage of the application.
+     *
+     * @param stage The primary stage.
+     * @throws IOException if an error occurs while loading the FXML file.
+     */
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
         mainLayout = loadFXML("MainLayout");
@@ -59,20 +69,43 @@ public class App extends Application {
        
     }
 
+    /**
+     * The main method, serves as the entry point of the application.
+     *
+     * @param args Command line arguments.
+     */
     public static void main(String[] args) {
         launch();
     }
 
+    /**
+     * Sets the root FXML file for the scene.
+     *
+     * @param fxml The name of the FXML file.
+     * @throws IOException if an error occurs while loading the FXML file.
+     */
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
+    /**
+     * Loads the FXML file and returns the loaded object.
+     *
+     * @param fxml The name of the FXML file.
+     * @param <T>  The type of the loaded object.
+     * @return The loaded object.
+     * @throws IOException if an error occurs while loading the FXML file.
+     */
     public static <T> T loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/isen/contactapp/view/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
-
+    /**
+     * Displays the specified view in the main layout.
+     *
+     * @param rootElement The FXML file representing the view.
+     */
     public static void showView(String rootElement) {
         try {
             mainLayout.setCenter(loadFXML(rootElement));
@@ -80,8 +113,13 @@ public class App extends Application {
             throw new IllegalArgumentException();
         }
     }
-    
-    
+
+
+    /**
+     * Retrieves the detail view data.
+     *
+     * @return The detail view data.
+     */
     // Getter for detailViewData
     @SuppressWarnings("exports")
 	public static Person getDetailViewData() {
@@ -89,9 +127,13 @@ public class App extends Application {
     }
 
     // Setter for detailViewData
+    /**
+     * Sets the detail view data.
+     *
+     * @param data The detail view data to set.
+     */
     public static void setDetailViewData(@SuppressWarnings("exports") Person data) {
         detailViewData = data;
     }
-    
 
 }

@@ -12,11 +12,18 @@ import static org.assertj.core.api.Assertions.*;
 import java.sql.*;
 import java.util.List;
 
+/**
+ * The PersonDaoTestCase class contains JUnit test cases for testing the functionality of the PersonDao class.
+ */
 public class PersonDaoTestCase {
 
     private PersonDao personDao = new PersonDao();
     private Person updatedPerson;
 
+    /**
+     * Initializes the test database.
+     * @throws Exception if an error occurs during database initialization.
+     */
     @Before
     public void initDb() throws Exception {
         Connection connection = DataSourceFactory.getConnection();
@@ -45,6 +52,9 @@ public class PersonDaoTestCase {
         statement.close();
     }
 
+    /**
+     * Tests the functionality to list all persons.
+     */
     @Test
     public void shouldListAllPersons() {
         // WHEN
@@ -57,6 +67,9 @@ public class PersonDaoTestCase {
                 tuple(3, "SAAD", "Mohammad", "Mo"));
     }
 
+    /**
+     * Tests the functionality to get a person by ID.
+     */
     @Test
     public void shouldGetPersonById() {
         // WHEN
@@ -69,6 +82,9 @@ public class PersonDaoTestCase {
         assertThat(person.getNickname()).isEqualTo("Prof");
     }
 
+    /**
+     * Tests the functionality when getting an unknown person.
+     */
     @Test
     public void shouldNotGetUnknownPerson() {
         // WHEN
@@ -78,12 +94,16 @@ public class PersonDaoTestCase {
         assertThat(person).isNull();
     }
 
+    /**
+     * Tests the functionality to add a person.
+     * @throws Exception if an error occurs during the test.
+     */
     @Test
     public void shouldAddPerson() throws Exception {
         // WHEN
         Person person = new Person();
         person.setLastName("Duval");
-        person.setFirstName("Philip");
+        person.setFirstName("Philippe");
         person.setNickname("Awesome Java Teacher");
         Person addedPerson = personDao.addPerson(person);
         // THEN
@@ -103,6 +123,9 @@ public class PersonDaoTestCase {
         connection.close();
     }
 
+    /**
+     * Tests the functionality to delete a person.
+     */
     @Test
     public void shouldDeletePerson() {
         // WHEN
@@ -113,6 +136,9 @@ public class PersonDaoTestCase {
         assertThat(personDao.getPersonById(3)).isNull();
     }
 
+    /**
+     * Tests the functionality to update a person.
+     */
     @Test
     public void shouldUpdatePerson() {
         // WHEN

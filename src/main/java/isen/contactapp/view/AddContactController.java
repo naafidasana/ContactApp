@@ -13,6 +13,9 @@ import isen.contactapp.App;
 
 import java.time.LocalDate;
 
+/**
+ * The AddContactController class handles the functionality related to adding a new contact.
+ */
 public class AddContactController {
 	// Create PersonDao object to add person to database.
 	PersonDao personDao = new PersonDao();
@@ -22,6 +25,9 @@ public class AddContactController {
 	@FXML
 	private DatePicker dobPicker;
 
+	/**
+	 * Handles the event when the Add Contact button is clicked.
+	 */
 	public void HandleAddContactBtn() {
 		// TODO Auto-generated constructor stub
 		String Fname = FnameTxt != null ? FnameTxt.getText() : "";
