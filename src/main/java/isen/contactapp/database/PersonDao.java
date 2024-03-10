@@ -165,5 +165,35 @@ public class PersonDao {
         }
         return null;
     }
+    
+    // Update a Person object in the database
+    public void updatePerson(Person person) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            String sqlQuery = "UPDATE person SET firstname=?, lastname=?, nickname=?, phone_number=?, address=?, email_address=?, birth_date=? WHERE idperson=?";
+            try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
+                statement.setString(1, person.getFirstName());
+                statement.setString(2, person.getLastName());
+                statement.setString(3, person.getNickname());
+                statement.setString(4, person.getPhoneNumber());
+                statement.setString(5, person.getAddress());
+                statement.setString(6, person.getEmailAddress());
+                
+                // Convert LocalDate to SQL Date
+                LocalDate dateOfBirth = person.getDateOfBirth();
+                if (dateOfBirth != null) {
+                    statement.setDate(7, java.sql.Date.valueOf(dateOfBirth));
+                } else {
+                    statement.setNull(7, Types.DATE);
+                }
+
+                statement.setInt(8, person.getId());
+
+                // Execute the update statement
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

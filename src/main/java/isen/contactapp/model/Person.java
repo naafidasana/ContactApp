@@ -12,6 +12,12 @@ public class Person {
     private String address;
     private String emailAddress;
     private LocalDate dateOfBirth;
+    
+    private String country;
+    private String city;
+    private String street;
+    private String zip;
+
 
     public Person(Integer id, String firstName, String lastName, String nickname) {
         super();
@@ -40,6 +46,15 @@ public class Person {
     public void setEmailAddress(String emailAddress) { this.emailAddress = emailAddress; }
 
     public void setDateOfBirth(LocalDate dateOfBirth) { this.dateOfBirth = dateOfBirth; }
+    
+    public void setCountry(String country) { this.country = country; }
+    public void setCity(String city) { this.city = city; }
+    public void setStreet(String street) { this.street = street; }
+    public void setZip(String zip) { this.zip = zip; }
+    
+    
+    
+    
 
     // Getters for Person class.
     public Integer getId() { return this.id; }  
@@ -57,6 +72,12 @@ public class Person {
     public String getAddress() { return this.address; }
 
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
+    
+    public String getCountry() { return this.country; }
+    public String getCity() { return this.city; }
+    public String getStreet() { return this.street; }
+    public String getZip() { return this.zip; }
+
 
     @Override
     public String toString() {
