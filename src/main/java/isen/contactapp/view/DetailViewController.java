@@ -131,7 +131,7 @@ public class DetailViewController {
 
         try {
             // Update the Person in the database
-            new PersonDao().updatePerson(personToUpdate);
+            new PersonDao().updatePerson(personToUpdate, personToUpdate.getId());
             
             // Display a success message
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

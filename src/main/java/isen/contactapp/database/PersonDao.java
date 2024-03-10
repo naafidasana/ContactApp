@@ -144,34 +144,9 @@ public class PersonDao {
         }
         return rowsDeleted;
     }
-
-    public Person updateLastName(Person person, String newLastName) {
-        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
-            String sqlQuery = "UPDATE person SET lastname=? WHERE idperson=?";
-            try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
-                statement.setString(1, newLastName);
-                statement.setInt(2, person.getId());
-
-                // Execute update
-                int rowsUpdated = statement.executeUpdate();
-
-                if (rowsUpdated > 0) {
-                    // rowsUpdated will be equals to one since IDs are unique.
-                    // Update objects lastname
-                    person.setLastName(newLastName);
-                    return person;
-                } else {
-                    throw new SQLException("Failed to update lastname for person with id: " + person.getId());
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
     
     // Update a Person object in the database
-    public void updatePerson(Person person) {
+    public Person updatePerson(Person person, Integer idOfPersonToUpdate) {
         try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             String sqlQuery = "UPDATE person SET firstname=?, lastname=?, nickname=?, phone_number=?, address=?, email_address=?, birth_date=? WHERE idperson=?";
             try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
@@ -190,13 +165,16 @@ public class PersonDao {
                     statement.setNull(7, Types.DATE);
                 }
 
-                statement.setInt(8, person.getId());
+                statement.setInt(8, idOfPersonToUpdate);
 
                 // Execute the update statement
                 statement.executeUpdate();
+
+                return getPersonById(person.getId()); // We fetch and return the person. Details should be the updated details though.
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

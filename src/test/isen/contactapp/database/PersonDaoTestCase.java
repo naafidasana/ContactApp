@@ -15,6 +15,7 @@ import java.util.List;
 public class PersonDaoTestCase {
 
     private PersonDao personDao = new PersonDao();
+    private Person updatedPerson;
 
     @Before
     public void initDb() throws Exception {
@@ -61,11 +62,20 @@ public class PersonDaoTestCase {
         // WHEN
         Integer id = 1;
         Person person = personDao.getPersonById(id);
-        // Then
+        // THEN
         assertThat(person.getId()).isEqualTo(1);
         assertThat(person.getLastName()).isEqualTo("IBRAHIM");
         assertThat(person.getFirstName()).isEqualTo("Naafi");
         assertThat(person.getNickname()).isEqualTo("Prof");
+    }
+
+    @Test
+    public void shouldNotGetUnknownPerson() {
+        // WHEN
+        Integer id = 10; // Does not exist in database
+        Person person = personDao.getPersonById(id);
+        // THEN
+        assertThat(person).isNull();
     }
 
     @Test
@@ -104,13 +114,14 @@ public class PersonDaoTestCase {
     }
 
     @Test
-    public void shouldUpdateLastName() {
+    public void shouldUpdatePerson() {
         // WHEN
-        Person originalPerson = personDao.getPersonById(1); // Update Naafi's lastname to Dasana
-        Person updatedPerson = personDao.updateLastName(originalPerson, "DASANA");
-        //Then
-        assertThat(updatedPerson.getLastName()).isEqualTo("DASANA");
-        assertThat(updatedPerson.getLastName()).isEqualTo(originalPerson.getLastName());
-        assertThat(updatedPerson.getLastName()).isEqualTo(personDao.getPersonById(originalPerson.getId()).getLastName());
+        Integer id = 1; // Update all fields of Naafi
+        Person personToUpdate = personDao.getPersonById(id);
+        // Update information
+        personToUpdate.setFirstName("Naafi Dasana"); // Change from Naafi to Naafi Dasana;
+        Person updatedPerson = personDao.updatePerson(personToUpdate, id);
+        // THEN
+        assertThat(updatedPerson.getFirstName()).isEqualTo(personToUpdate.getFirstName());
     }
 }
