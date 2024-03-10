@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root2" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.contactapp.view.AddContactController">
    <children>
-      <Label layoutX="224.0" layoutY="14.0" stylesheets="@../style.css" text="Add a Contact" textFill="#062940">
+      <Label layoutX="224.0" layoutY="14.0" stylesheets="@../style.css" text="Add a Contact" textFill="#91d5ff">
          <font>
             <Font size="24.0" />
          </font>
@@ -47,7 +47,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" text="First Name" GridPane.rowIndex="1">
+            <Label alignment="CENTER" text="First Name" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
@@ -57,7 +57,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" text="Last Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label alignment="CENTER" text="Last Name" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
@@ -67,7 +67,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" text="Phone Number" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Label alignment="CENTER" text="Phone Number" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
@@ -77,7 +77,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" text="Nickname" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label alignment="CENTER" text="Nickname" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
@@ -92,7 +92,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" text="Street Address" GridPane.rowIndex="8">
+            <Label alignment="CENTER" text="Street Address" textFill="WHITE" GridPane.rowIndex="8">
                <font>
                   <Font size="18.0" />
                </font>
@@ -107,22 +107,22 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" text="Email Address" GridPane.rowIndex="4">
+            <Label alignment="CENTER" text="Email Address" textFill="WHITE" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="150.0" text="Zip Code" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="150.0" text="Zip Code" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="290.0" layoutY="150.0" text="City" GridPane.columnIndex="2" GridPane.rowIndex="8">
+            <Label alignment="CENTER" layoutX="290.0" layoutY="150.0" text="City" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="8">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Country" GridPane.columnIndex="3" GridPane.rowIndex="8">
+            <Label text="Country" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="8">
                <font>
                   <Font size="18.0" />
                </font>
@@ -133,12 +133,7 @@
                </font>
             </TextField>
             <DatePicker fx:id="dobPicker" prefHeight="40.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label text="Date of Birth" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label text="Address:" GridPane.rowIndex="7">
+            <Label text="Date of Birth" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>

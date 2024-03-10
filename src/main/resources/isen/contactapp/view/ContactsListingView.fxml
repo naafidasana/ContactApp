@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -28,7 +27,7 @@
                   </Label>
                </children>
             </VBox>
-            <HBox spacing="20.0">
+            <VBox alignment="CENTER" spacing="10.0">
                <children>
                   <Button fx:id="detailButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonClick" styleClass="button-secondary" stylesheets="@../style.css" text="View Details" textAlignment="CENTER" />
                   <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddButtonClick" styleClass="custom-button" stylesheets="@../style.css" text="Add a Contact" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
@@ -37,7 +36,7 @@
                      </cursor>
                   </Button>
                </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </children>
